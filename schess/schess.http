@@ -1,0 +1,6 @@
+@schess_HostAddress = http://localhost:5256
+
+GET {{schess_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
