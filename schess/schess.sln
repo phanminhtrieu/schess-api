@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schess", "schess.csproj", "{373887E3-180A-42A7-BEDF-37D637672429}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCHESS", "SCHESS.csproj", "{03767BE3-3983-4A18-84DE-9268FBC95A01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Tests", "0. Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Hosts", "1. Hosts", "{244388E7-7D74-4C42-B27A-3A4E6D366730}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Infrastructure", "2. Infrastructure", "{1669B51C-DFED-48FF-AE3F-0D0CC9C05326}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Shared", "3. Shared", "{DDEAC5D1-C1D9-42E8-AE84-77C0C5E56364}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +19,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{373887E3-180A-42A7-BEDF-37D637672429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{373887E3-180A-42A7-BEDF-37D637672429}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{373887E3-180A-42A7-BEDF-37D637672429}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{373887E3-180A-42A7-BEDF-37D637672429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03767BE3-3983-4A18-84DE-9268FBC95A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03767BE3-3983-4A18-84DE-9268FBC95A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03767BE3-3983-4A18-84DE-9268FBC95A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03767BE3-3983-4A18-84DE-9268FBC95A01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{03767BE3-3983-4A18-84DE-9268FBC95A01} = {244388E7-7D74-4C42-B27A-3A4E6D366730}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {94CF9970-A7C2-4B29-9095-1188C02D7C81}
+		SolutionGuid = {35068A45-C0BE-421F-B619-93BC46A6B861}
 	EndGlobalSection
 EndGlobal
