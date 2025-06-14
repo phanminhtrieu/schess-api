@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SCHESS.CrossCuttingConcerns\SCHESS.CrossCuttingConcerns.csproj" />
+    <ProjectReference Include="..\SCHESS.Domain\SCHESS.Domain.csproj" />
+    <ProjectReference Include="..\SCHESS.Infrastructure\SCHESS.Infrastructure.csproj" />
+    <ProjectReference Include="..\SCHESS.Models\SCHESS.Models.csproj" />
+    <ProjectReference Include="..\SCHESS.Persistence\SCHESS.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
