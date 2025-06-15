@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SCHESS.Domain.Repositories;
 using SCHESS.Domain.UnitOfWork;
+using SCHESS.Persistence.Repositories;
 using SCHESS.Persistence.UnitOfWork;
 
 namespace SCHESS.Persistence
@@ -23,7 +25,9 @@ namespace SCHESS.Persistence
             // Inject Unit Of Work
             services.AddScoped<IUnitOfWork, UnitOfWork<AppDbContext>>();
 
-            // Inject Repositories
+            // Email Repository
+            services.AddScoped<IEmailRepository, EmailRepository>();
+            services.AddScoped<IEmailSentLogRepository, EmailSentLogRepository>();
         }
     }
 }

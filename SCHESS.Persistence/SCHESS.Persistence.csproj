@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Configurations\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +31,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SCHESS.Domain\SCHESS.Domain.csproj" />
     <ProjectReference Include="..\SCHESS.Infrastructure\SCHESS.Infrastructure.csproj" />
+    <ProjectReference Include="..\SCHESS.Models\SCHESS.Models.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SCHESS.Domain.Entity.System;
+using SCHESS.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -119,6 +120,36 @@ namespace SCHESS.Domain.Extensions
                     UserId = PLAYER_ACCOUNT_ID
                 }
             );
+
+            // Email Settings
+            modelBuilder.Entity<EmailSetting>().HasData(
+                new EmailSetting
+                {
+                    Id = 1,
+                    IsActive = true,
+                    IsSsl = true,
+                    CreatedUserId = ADMIN_ACCOUNT_ID,
+                    ModifiedUserId = ADMIN_ACCOUNT_ID,
+                    CreatedDate = DateTime.UtcNow,
+                    ModifiedDate = DateTime.UtcNow
+                });
+
+            // Email
+            modelBuilder.Entity<Email>().HasData(
+                new Email
+                {
+                    Id = 1,
+                    Code = "SEND_EMAIL_CONFIRMATION",
+                    Function = EmailFunction.SendEmailConfirmation,
+                    Title = "Email Confirmation",
+                    Subject = "Email Confirmation",
+                    Body = "<figure class=\"table\">\r\n  <table>\r\n    <tbody>\r\n      <!-- Phần nội dung chính -->\r\n      <tr>\r\n        <td>\r\n          <p style=\"margin-left:20px;\">\r\n            <strong>Chào mừng đến với SCHESS!</strong>\r\n          </p>\r\n          <p style=\"margin-left:20px;\">\r\n            Để kích hoạt tài khoản, vui lòng nhấn nút bên dưới để xác thực địa chỉ email.\r\n          </p>\r\n          <p style=\"margin-left:20px;\">\r\n            <a href=\"{{confirmationLink}}\">Kích hoạt tài khoản</a>\r\n          </p>\r\n          <p style=\"margin-left:20px;\">\r\n            Trong trường hợp nút kích hoạt ở trên không hoạt động, hãy sao chép và dán đường link này vào trình duyệt của bạn:\r\n          </p>\r\n          <p style=\"margin-left:20px;\">\r\n            <a href=\"{{confirmationLink}}\">{{confirmationLink}}</a>\r\n          </p>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</figure>",
+                    EmailSettingId = 1,
+                    CreatedUserId = ADMIN_ACCOUNT_ID,
+                    ModifiedUserId = ADMIN_ACCOUNT_ID,
+                    CreatedDate = DateTime.UtcNow,
+                    ModifiedDate = DateTime.UtcNow
+                });
         }
         
     }

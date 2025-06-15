@@ -16,8 +16,10 @@ namespace SCHESS.Persistence
         // System
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
-
         public DbSet<AuditLogin> AuditLogins { get; set; }
+        public DbSet<Email> Emails { get; set; }
+        public DbSet<EmailSetting> EmailSettings { get; set; }
+        public DbSet<EmailSentLog> EmailSentLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

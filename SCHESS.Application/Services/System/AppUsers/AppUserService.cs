@@ -54,11 +54,8 @@ namespace SCHESS.Application.Services.System.AppUsers
                 IsSuccessded = false,
             };
 
-            if (!string.IsNullOrEmpty(request.UserName))
-            {
-                user = await _userManager.FindByNameAsync(request.UserName);
-            }
-            else if (!string.IsNullOrEmpty(request.Email))
+            bool isEmailNull = string.IsNullOrEmpty(request.Email);
+            if (!isEmailNull)
             {
                 user = await _userManager.FindByEmailAsync(request.Email);
             }
@@ -109,6 +106,42 @@ namespace SCHESS.Application.Services.System.AppUsers
 
             return new ApiSuccessResult<ClientLoginDto>(clientLoginDto);
 
+        }
+
+        public async Task<ApiResult<AppUser>> Register(RegisterRequest request)
+        {
+            var user = new AppUser();
+
+            bool isEmailNotNull = !string.IsNullOrEmpty(request.Email);
+
+            if (isEmailNotNull)
+            {
+                user = await _userManager.FindByEmailAsync(request.Email!);
+            }
+
+            if (user is not null) return new ApiErrorResult<AppUser>(ErrorMessage.USER_CREATED);
+
+            user = new AppUser
+            {
+                UserName = request.Email,
+                Email = request.Email,
+                Bio = string.Empty,
+                PhoneNumber = null,
+                Avatar = string.Empty,
+                CreatedDate = DateTime.UtcNow,
+                ModifiedDate = DateTime.UtcNow,
+                ActivateDate = DateTime.UtcNow,
+                LastLogin = DateTime.UtcNow,
+                IsActive = true
+            };
+
+            var result = await _userManager.CreateAsync(user, request.Password!);
+
+            bool isUserNotCreated = !result.Succeeded;
+
+            if (isUserNotCreated) return new ApiErrorResult<AppUser>(ErrorMessage.CREATE_USER_FAILED);
+
+            return new ApiSuccessResult<AppUser>(user);
         }
 
         private async Task UpdateUserLastLoginDate(AppUser user)
@@ -178,5 +211,7 @@ namespace SCHESS.Application.Services.System.AppUsers
         {
             await _auditLoginService.AddAsync(auditLoginRequest);
         }
+
+        
     }
 }

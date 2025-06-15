@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SCHESS.Persistence;
 
@@ -11,9 +12,11 @@ using SCHESS.Persistence;
 namespace SCHESS.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250614181807_Add-Email")]
+    partial class AddEmail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -338,7 +341,7 @@ namespace SCHESS.Persistence.Migrations
                         {
                             Id = new Guid("680b988b-4c45-4f74-9972-c9d3897aa93c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d348c254-4115-45c7-a56b-c0361db738b8",
+                            ConcurrencyStamp = "4f235d47-2328-4b59-89dc-f151d66752af",
                             CreatedDate = new DateTime(2024, 6, 13, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Dob = new DateTime(2004, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@gmail.com",
@@ -351,7 +354,7 @@ namespace SCHESS.Persistence.Migrations
                             ModifiedDate = new DateTime(2024, 6, 13, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGTfQoo8p+BDdKpNj8pg6LM3sNN4zmPAaN2CAYKzlTLbtljGfIwNcW0vjz482d6DbA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF90TguubM1xSXNY/DRCnSHo3Ut8itwDtvriT08SmFtykG5/6p42iMP9vjvpqQf3iA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -361,7 +364,7 @@ namespace SCHESS.Persistence.Migrations
                         {
                             Id = new Guid("28879b28-9806-4c3d-9783-88f121e5df97"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "797d24b3-961d-49e4-84d3-80662b194fa7",
+                            ConcurrencyStamp = "4b12f284-73fb-44a2-8617-03022ae6777b",
                             CreatedDate = new DateTime(2024, 6, 13, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Dob = new DateTime(1955, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "trainer@gmail.com",
@@ -374,7 +377,7 @@ namespace SCHESS.Persistence.Migrations
                             ModifiedDate = new DateTime(2024, 6, 13, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             NormalizedEmail = "TRAINER@GMAIL.COM",
                             NormalizedUserName = "TRAINER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKRJpLq+vTJWJOC7r3xlZBQHziGRpW/HOmTl9IbtIzXK0gPrpdT6xCvdGMGsTx0vgw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELTSAScI4AGMaO5Dq0q2E4JuVr9BrlCi2fzN5MDByXLqVjUjKkY5o2z6WbukN970EA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -384,7 +387,7 @@ namespace SCHESS.Persistence.Migrations
                         {
                             Id = new Guid("af6c5318-d37a-4359-beb6-19f0ce1b6e38"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "516e12ff-a333-4b25-bc2b-aff0f17493ac",
+                            ConcurrencyStamp = "adbee680-53ac-47ec-bd45-239a65a4f268",
                             CreatedDate = new DateTime(2024, 6, 13, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Dob = new DateTime(2004, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "player@gmail.com",
@@ -397,7 +400,7 @@ namespace SCHESS.Persistence.Migrations
                             ModifiedDate = new DateTime(2024, 6, 13, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             NormalizedEmail = "PLAYER@GMAIL.COM",
                             NormalizedUserName = "PLAYER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKHkxpnlwJFtBwIzJWBkBLxQN2DkOlcoTU1ysG0pu/L8aB6NwKO3hanw/hlwrZFZ2g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBFFJt5RiCqecyp7zjr5WUVHHjf+Rai3IyApkQXd3AbYC70XcHpl1wtKrRuypOiKpQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -491,22 +494,6 @@ namespace SCHESS.Persistence.Migrations
                     b.HasIndex("EmailSettingId");
 
                     b.ToTable("Emails");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Body = "<figure class=\"table\">\r\n  <table>\r\n    <tbody>\r\n      <!-- Phần nội dung chính -->\r\n      <tr>\r\n        <td>\r\n          <p style=\"margin-left:20px;\">\r\n            <strong>Chào mừng đến với SCHESS!</strong>\r\n          </p>\r\n          <p style=\"margin-left:20px;\">\r\n            Để kích hoạt tài khoản, vui lòng nhấn nút bên dưới để xác thực địa chỉ email.\r\n          </p>\r\n          <p style=\"margin-left:20px;\">\r\n            <a href=\"{{confirmationLink}}\">Kích hoạt tài khoản</a>\r\n          </p>\r\n          <p style=\"margin-left:20px;\">\r\n            Trong trường hợp nút kích hoạt ở trên không hoạt động, hãy sao chép và dán đường link này vào trình duyệt của bạn:\r\n          </p>\r\n          <p style=\"margin-left:20px;\">\r\n            <a href=\"{{confirmationLink}}\">{{confirmationLink}}</a>\r\n          </p>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</figure>",
-                            Code = "SEND_EMAIL_CONFIRMATION",
-                            CreatedDate = new DateTime(2025, 6, 15, 11, 17, 42, 671, DateTimeKind.Utc).AddTicks(6867),
-                            CreatedUserId = new Guid("680b988b-4c45-4f74-9972-c9d3897aa93c"),
-                            EmailSettingId = 1,
-                            Function = 1,
-                            ModifiedDate = new DateTime(2025, 6, 15, 11, 17, 42, 671, DateTimeKind.Utc).AddTicks(6867),
-                            ModifiedUserId = new Guid("680b988b-4c45-4f74-9972-c9d3897aa93c"),
-                            Subject = "Email Confirmation",
-                            Title = "Email Confirmation"
-                        });
                 });
 
             modelBuilder.Entity("SCHESS.Domain.Entity.System.EmailSentLog", b =>
@@ -549,7 +536,7 @@ namespace SCHESS.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EmailSentLogs");
+                    b.ToTable("EmailFunctions");
                 });
 
             modelBuilder.Entity("SCHESS.Domain.Entity.System.EmailSetting", b =>
@@ -602,18 +589,6 @@ namespace SCHESS.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EmailSettings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2025, 6, 15, 11, 17, 42, 671, DateTimeKind.Utc).AddTicks(6803),
-                            CreatedUserId = new Guid("680b988b-4c45-4f74-9972-c9d3897aa93c"),
-                            IsActive = true,
-                            IsSsl = true,
-                            ModifiedDate = new DateTime(2025, 6, 15, 11, 17, 42, 671, DateTimeKind.Utc).AddTicks(6807),
-                            ModifiedUserId = new Guid("680b988b-4c45-4f74-9972-c9d3897aa93c")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
