@@ -52,14 +52,14 @@ namespace SCHESS.Application.Services.System.AppUsers
                 UserId = string.Empty,
                 Email = request.Email,
                 IsSuccessded = false,
-            };
+            };  
 
             bool isEmailNull = string.IsNullOrEmpty(request.Email);
             if (!isEmailNull)
             {
                 user = await _userManager.FindByEmailAsync(request.Email);
             }
-
+                
             if (user is null)
             {
                 auditLoginRequest.Notes = ErrorMessage.WRONG_EMAIL;
